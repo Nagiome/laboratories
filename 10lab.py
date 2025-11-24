@@ -7,7 +7,8 @@ newspapers = [
     ("The Guardian", "%A, %d.%m.%y"),
     ("Daily News", "%A, %d %B %Y")
 ]
-
+# %A - день недели полностью, %Y - год(ХХХХ), %B - месяц полностью,
+# %m - месяц(ХХ), %y - год(ХХ), %d - день(ХХ) 
 # Универсальные форматы для считывания дат
 input_formats = [
     "%d.%m.%Y",
@@ -40,4 +41,5 @@ for name, output_fmt in newspapers:
         print(f"{name} - {date_obj.strftime(output_fmt)}")
     else:
         print(f"{name} - Неверный формат даты")
+
 input('Нажмите Enter, чтобы завершить программу')
