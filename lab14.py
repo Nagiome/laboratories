@@ -37,7 +37,7 @@ while True:
         login = input("Введите логин: ")
         password = input("Введите пароль: ")
         
-        if login == "admin" and password == "passsword": #проверка на логин в адм панель
+        if login == "admin" and password == "password": #проверка на логин в адм панель
             print("Добро пожаловать")
         else:
             print("Доступ ограничен")
@@ -53,3 +53,4 @@ while True:
             continue
 
         # проверка логина и пароля
+
