@@ -34,9 +34,8 @@ while True:
         attempts[login] = MAX_ATTEMPTS  
         print("Регистрация завершена")
 
-    # =======================
-    #         ВХОД
-    # =======================
+    #
+    #ВХОД
     elif choice == "2":
         login = input("Введите логин: ")
         password = input("Введите пароль: ")
@@ -62,9 +61,9 @@ while True:
             if attempts[login] == 0:
                 print("Аккаунт заблокирован.")
 
-    # =======================
+    #
     #         ВЫХОД
-    # =======================
+   
     elif choice == "3":
         print("Выход...")
         break
