@@ -28,7 +28,7 @@ while True:
             continue
 
         new_password = input("Введите новый пароль: ")
-        users[login] = new_password  # <-- здесь ошибка была
+        users[login] = new_password  #была ошибка в 1 версии кода
         attempts[login] = MAX_ATTEMPTS  
         print("Регистрация завершена")
 
