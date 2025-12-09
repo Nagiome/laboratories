@@ -1,22 +1,22 @@
 def read_matrix(rows: int, cols: int):
     """
-    Считывает matrix из stdin — rows строк, каждая строка содержит cols чисел, разделённых пробелами.
-    Пример ввода строки: 1 2 3
+    РЎС‡РёС‚С‹РІР°РµС‚ matrix РёР· stdin вЂ” rows СЃС‚СЂРѕРє, РєР°Р¶РґР°СЏ СЃС‚СЂРѕРєР° СЃРѕРґРµСЂР¶РёС‚ cols С‡РёСЃРµР», СЂР°Р·РґРµР»С‘РЅРЅС‹С… РїСЂРѕР±РµР»Р°РјРё.
+    РџСЂРёРјРµСЂ РІРІРѕРґР° СЃС‚СЂРѕРєРё: 1 2 3
     """
-    print(f"Введите {rows} строк матрицы, каждая строка содержит {cols} чисел, разделённых пробелом:")
+    print(f"Р’РІРµРґРёС‚Рµ {rows} СЃС‚СЂРѕРє РјР°С‚СЂРёС†С‹, РєР°Р¶РґР°СЏ СЃС‚СЂРѕРєР° СЃРѕРґРµСЂР¶РёС‚ {cols} С‡РёСЃРµР», СЂР°Р·РґРµР»С‘РЅРЅС‹С… РїСЂРѕР±РµР»РѕРј:")
     mat = []
     for i in range(rows):
-        parts = input(f"Строка {i+1}: ").strip().split()
+        parts = input(f"РЎС‚СЂРѕРєР° {i+1}: ").strip().split()
         if len(parts) != cols:
-            raise ValueError(f"Ожидалось {cols} чисел в строке, получили {len(parts)}")
+            raise ValueError(f"РћР¶РёРґР°Р»РѕСЃСЊ {cols} С‡РёСЃРµР» РІ СЃС‚СЂРѕРєРµ, РїРѕР»СѓС‡РёР»Рё {len(parts)}")
         row = [float(x) if '.' in x else int(x) for x in parts]
         mat.append(row)
     return mat
 
 def find_max_pos(matrix):
-    """Возвращает (max_value, i, j) — значение и координаты первого вхождения максимума."""
+    """Р’РѕР·РІСЂР°С‰Р°РµС‚ (max_value, i, j) вЂ” Р·РЅР°С‡РµРЅРёРµ Рё РєРѕРѕСЂРґРёРЅР°С‚С‹ РїРµСЂРІРѕРіРѕ РІС…РѕР¶РґРµРЅРёСЏ РјР°РєСЃРёРјСѓРјР°."""
     if not matrix or not matrix[0]:
-        raise ValueError("Матрица пустая")
+        raise ValueError("РњР°С‚СЂРёС†Р° РїСѓСЃС‚Р°СЏ")
     max_val = matrix[0][0]
     max_i = max_j = 0
     for i, row in enumerate(matrix):
@@ -27,30 +27,30 @@ def find_max_pos(matrix):
     return max_val, max_i, max_j
 
 def swap_max_elements(A, B):
-    """Меняет местами максимальные элементы матриц A и B (in-place)."""
+    """РњРµРЅСЏРµС‚ РјРµСЃС‚Р°РјРё РјР°РєСЃРёРјР°Р»СЊРЅС‹Рµ СЌР»РµРјРµРЅС‚С‹ РјР°С‚СЂРёС† A Рё B (in-place)."""
     if len(A) != len(B) or len(A[0]) != len(B[0]):
-        raise ValueError("Матрицы должны иметь одинаковый размер")
+        raise ValueError("РњР°С‚СЂРёС†С‹ РґРѕР»Р¶РЅС‹ РёРјРµС‚СЊ РѕРґРёРЅР°РєРѕРІС‹Р№ СЂР°Р·РјРµСЂ")
     _, ai, aj = find_max_pos(A)
     _, bi, bj = find_max_pos(B)
     A[ai][aj], B[bi][bj] = B[bi][bj], A[ai][aj]
     return A, B
 
-if name == "main":
-    rows = int(input("Введите число строк: "))
-    cols = int(input("Введите число столбцов: "))
-    print("Ввод матрицы A:")
+if __name__ == "__main__":
+    rows = int(input("Р’РІРµРґРёС‚Рµ С‡РёСЃР»Рѕ СЃС‚СЂРѕРє: "))
+    cols = int(input("Р’РІРµРґРёС‚Рµ С‡РёСЃР»Рѕ СЃС‚РѕР»Р±С†РѕРІ: "))
+    print("Р’РІРѕРґ РјР°С‚СЂРёС†С‹ A:")
     A = read_matrix(rows, cols)
-    print("Ввод матрицы B:")
+    print("Р’РІРѕРґ РјР°С‚СЂРёС†С‹ B:")
     B = read_matrix(rows, cols)
 
-    print("Матрица A до обмена:")
+    print("РњР°С‚СЂРёС†Р° A РґРѕ РѕР±РјРµРЅР°:")
     for r in A: print(r)
-    print("Матрица B до обмена:")
+    print("РњР°С‚СЂРёС†Р° B РґРѕ РѕР±РјРµРЅР°:")
     for r in B: print(r)
 
     A_after, B_after = swap_max_elements(A, B)
 
-    print("Матрица A после обмена:")
+    print("РњР°С‚СЂРёС†Р° A РїРѕСЃР»Рµ РѕР±РјРµРЅР°:")
     for r in A_after: print(r)
-    print("Матрица B после обмена:")
+    print("РњР°С‚СЂРёС†Р° B РїРѕСЃР»Рµ РѕР±РјРµРЅР°:")
     for r in B_after: print(r)
