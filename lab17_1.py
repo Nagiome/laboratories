@@ -1,6 +1,5 @@
-
-def is_prime(k: int) -> bool:
-    """Проверка простоты числа."""
+def is_prime(k: int) -> bool:
+    """РџСЂРѕРІРµСЂРєР° РїСЂРѕСЃС‚РѕС‚С‹ С‡РёСЃР»Р°."""
     if k <= 1:
         return False
     if k <= 3:
@@ -15,9 +14,9 @@ def is_prime(k: int) -> bool:
     return True
 
 def twin_primes_in_interval(n: int):
-    """Возвращает список пар (p, p+2) — близнецов в отрезке [n, 2n]."""
+    """Р’РѕР·РІСЂР°С‰Р°РµС‚ СЃРїРёСЃРѕРє РїР°СЂ (p, p+2) вЂ” Р±Р»РёР·РЅРµС†РѕРІ РІ РѕС‚СЂРµР·РєРµ [n, 2n]."""
     if n <= 2:
-        raise ValueError("n должно быть больше 2")
+        raise ValueError("n РґРѕР»Р¶РЅРѕ Р±С‹С‚СЊ Р±РѕР»СЊС€Рµ 2")
     low, high = n, 2 * n
     twins = []
     for p in range(low, high - 1):
@@ -25,12 +24,12 @@ def twin_primes_in_interval(n: int):
             twins.append((p, p + 2))
     return twins
 
-if name == "main":
-    n = int(input("Введите n (натуральное, >2): "))
+if __name__ == "__main__":
+    n = int(input("Р’РІРµРґРёС‚Рµ n (РЅР°С‚СѓСЂР°Р»СЊРЅРѕРµ, >2): "))
     pairs = twin_primes_in_interval(n)
     if pairs:
-        print("Пары близнецов на отрезке [{}, {}]:".format(n, 2*n))
+        print("РџР°СЂС‹ Р±Р»РёР·РЅРµС†РѕРІ РЅР° РѕС‚СЂРµР·РєРµ [{}, {}]:".format(n, 2*n))
         for a, b in pairs:
             print(a, b)
     else:
-        print("Пары близнецов не найдены в данном отрезке.")
+        print("РџР°СЂС‹ Р±Р»РёР·РЅРµС†РѕРІ РЅРµ РЅР°Р№РґРµРЅС‹ РІ РґР°РЅРЅРѕРј РѕС‚СЂРµР·РєРµ.")
