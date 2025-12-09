@@ -54,3 +54,4 @@ if __name__ == "__main__":
     for r in A_after: print(r)
     print("Матрица B после обмена:")
     for r in B_after: print(r)
+input("Нажмите Enter, чтобы закрыть...")
